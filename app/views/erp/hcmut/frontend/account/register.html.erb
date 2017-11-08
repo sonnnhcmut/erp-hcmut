@@ -1,0 +1,71 @@
+<!-- Section: inner-header -->
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="/hcmut/images/bg/slide1.jpg">
+    <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title text-white">ĐĂNG KÝ TÀI KHOẢN</h1>
+                    <ol class="breadcrumb text-left text-black mt-10">
+                        <li><%= link_to 'Trang Chủ', erp_hcmut.root_path %></li>
+                        <li class="active text-gray-silver">Đăng Ký Tài Khoản</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="tab-content bg-silver-light">
+                    <div class="tab-pane fade in active p-15" id="register-tab">
+                        <form name="reg-form" class="register-form" method="post">
+                            <div class="icon-box mb-0 p-0">
+                                <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                                    <i class="pe-7s-users"></i>
+                                </a>
+                                <h3 class="text-theme-colored pt-10 mt-0 mb-30">Bạn chưa có tài khoản? Đăng ký ngay.</h3>
+                            </div>
+                            <hr>
+                            <p class="text-gray">Đăng ký tài khoản để quản lý những dịch vụ hiện tại của bạn.</p>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="form_name">Họ & Tên <span class="required">*</span></label>
+                                    <input name="form_name" class="form-control" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Địa chỉ email <span class="required">*</span></label>
+                                    <input name="form_email" class="form-control" type="email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="form_choose_password">Mật khẩu <span class="required">*</span></label>
+                                    <input id="form_choose_password" name="form_choose_password" class="form-control" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Xác nhận mật khẩu <span class="required">*</span></label>
+                                    <input id="form_re_enter_password" name="form_re_enter_password" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-dark btn-theme-colored2 btn-lg btn-block mt-15" type="submit">ĐĂNG KÝ TÀI KHOẢN</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <%= image_tag '/hcmut/images/team/1.png', alt: '', class: 'img-fullwidth' %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider: Clients -->
+<section class="clients bg-theme-colored2">
+    <%= render "erp/hcmut/frontend/modules/home/clients" %>
+</section>

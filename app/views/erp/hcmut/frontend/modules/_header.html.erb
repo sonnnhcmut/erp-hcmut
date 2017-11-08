@@ -1,0 +1,69 @@
+<header id="header" class="header modern-header modern-header-theme-colored">
+    <div class="header-top bg-theme-colored sm-text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget text-white">
+                        <i class="fa fa-clock-o text-theme-colored2"></i> Giờ làm việc: Thứ 2 - Thứ 6 (8:00AM - 17:00PM), Thứ 7 - Chủ Nhật - Ngày Lễ (Không làm việc)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget pull-right flip sm-pull-none">
+                        <ul class="nav navbar-nav list-bordered language-switcher">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/hcmut/images/flags/en.png" alt="En"> VI <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><img src="/hcmut/images/flags/en.png" alt="En"> English</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <ul class="list-inline  text-right flip sm-text-center">
+                            <li class="m-0 pl-10">
+                                <%= link_to '<i class="fa fa-user-o mr-5 text-theme-colored2"></i> Đăng Ký'.html_safe,
+                                    erp_hcmut.register_path, title: 'Đăng ký tài khoản', class: 'text-white' %>
+                            </li>
+                            <li class="m-0 pl-0 pr-10">
+                                <%= link_to '<i class="fa fa-edit mr-5 text-theme-colored2"></i> Đăng Nhập'.html_safe,
+                                    erp_hcmut.login_path, title: 'Đăng nhập tài khoản', class: 'text-white' %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle p-0 bg-light xs-text-center">
+        <div class="container pt-30 pb-30">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="widget sm-text-center">
+                        <i class="fa fa-envelope text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
+                        <a href="#" class="font-12 text-gray text-uppercase">Địa chỉ email</a>
+                        <h5 class="font-13 text-black m-0"> info@yourdomain.com</h5>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="widget text-center">
+                        <%= link_to image_tag('/hcmut/images/logo-wide1.png', alt: ''), erp_hcmut.root_path, title: '' %>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="widget sm-text-center">
+                        <i class="fa fa-building-o text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
+                        <a href="#" class="font-12 text-gray text-uppercase">Địa chỉ</a>
+                        <h5 class="font-13 text-black m-0"> 188 Đường Số 1, P.16, Gò Vấp, TP.HCM, VN</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="header-nav-wrapper navbar-scrolltofixed">
+            <div class="container">
+                <%= render "erp/hcmut/frontend/modules/header/main_menu" %>
+            </div>
+        </div>
+    </div>
+</header>

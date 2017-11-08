@@ -1,0 +1,11 @@
+Erp::Hcmut::Engine.routes.draw do
+  root to: "frontend/home#index"
+  get "dang-nhap.html" => "frontend/account#login", as: :login
+  get "dang-ky.html" => "frontend/account#register", as: :register
+  get "gioi-thieu.html" => "frontend/about_us#index", as: :about_us
+  get "tin-tuc.html" => "frontend/blog#listing", as: :blog_listing
+  get "tin-tuc/chi-tiet.html" => "frontend/blog#detail", as: :blog_detail
+  get "tuyen-dung.html" => "frontend/job#listing", as: :job_listing
+  get "tuyen-dung/chi-tiet.html" => "frontend/job#detail", as: :job_detail
+  get "lien-he.html" => "frontend/contact#index", as: :contact
+end

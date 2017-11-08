@@ -1,0 +1,60 @@
+<!-- Section: inner-header -->
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="/hcmut/images/bg/slide1.jpg">
+    <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title text-white">TIN TỨC</h1>
+                    <ol class="breadcrumb text-left text-black mt-10">
+                        <li><%= link_to 'Trang Chủ', erp_hcmut.root_path %></li>
+                        <li class="active text-gray-silver">Tin Tức</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section: News & Blog -->
+<section id="news">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <% (0..8).each do |blog| %>
+                    <div class="col-sm-6 col-md-4">
+                        <article class="post clearfix mb-30 mb-sm-30">
+                            <div class="entry-header">
+                                <div class="post-thumb thumb">
+                                    <%= image_tag '/hcmut/images/blog/1.jpg', alt: '', class: 'img-responsive img-fullwidth' %>
+                                </div>
+                            </div>
+                            <div class="entry-content p-20 pr-10 bg-lighter">
+                                <div class="entry-meta media mt-0 no-bg no-border">
+                                    <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+                                        <ul>
+                                            <li class="font-16 text-white font-weight-600 border-bottom">28</li>
+                                            <li class="font-12 text-white text-uppercase">Feb</li>
+                                        </ul>
+                                    </div>
+                                    <div class="media-body pl-15">
+                                        <div class="event-content pull-left flip">
+                                            <h4 class="entry-title text-white text-uppercase m-0 mt-5">
+                                                <%= link_to 'Tiêu Đề Bài Viết Tiêu Đề Bài Viết Bài Viết', erp_hcmut.blog_detail_path, title: '' %>
+                                            </h4>
+                                            <span class="mb-10 text-gray-darkgray mr-10 font-13"><i class="fa fa-user mr-5 text-theme-colored"></i> Quản trị viên</span>
+                                            <span class="mb-10 text-gray-darkgray mr-10 font-13"><i class="fa fa-folder mr-5 text-theme-colored"></i> Tin tức</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-10 text-justify">Trong suốt quá trình hoạt động và phát triển vấn đề về thuế luôn đóng một vai trò quan trọng nhất đối với các doanh nghiệp lớn nhỏ......</p>
+                                <%= link_to 'XEM CHI TIẾT', erp_hcmut.blog_detail_path, title: '', class: 'btn btn-theme-colored2 btn-sm text-white' %>
+                                <div class="clearfix"></div>
+                            </div>
+                        </article>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

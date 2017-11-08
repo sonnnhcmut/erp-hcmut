@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="call-to-action pt-20 pb-10">
+            <!-- Reservation Form Start-->
+            <form id="reservation_form" name="reservation_form" class="reservation-form mb-0" method="post" action="includes/reservation.php">
+                <div class="col-md-10">
+                    <h2 class="text-white border-bottom mt-0 mb-10">ĐĂNG KÝ <span class="text-theme-colored2">TƯ VẤN</span></h2>
+                    <p class="text-white mt-0">Business is a marketing discipline focused on growing visibility in organic search engine results.encompasses both the technical and creative elements required to improve rankings, drive traffic, and increase awareness in search engines</p>
+                    <h4 class="text-white mt-20 mb-10">Bạn cần chúng tôi tư vấn về dịch vụ gì?</h4>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group mb-15">
+                        <input name="" class="form-control required email" type="email" placeholder="Nhập tên của bạn tại đây...">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group mb-15">
+                        <input placeholder="Nhập số điện thoại của bạn tại đây..." type="text" id="" name="" class="form-control required">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group mb-15">
+                        <div class="styled-select">
+                            <select id="" name="" class="form-control" required="">
+                                <option value="">- Chọn dịch vụ tư vấn -</option>
+                                <option value="">Dịch vụ kế toán trọn gói</option>
+                                <option value="">Dịch vụ quyết toán thuế</option>
+                                <option value="">Dịch vụ báo cáo tài chính</option>
+                                <option value="">Dịch vụ bảo hiểm xã hội</option>
+                                <option value="">Dịch vụ thủ tục thuế ban đầu</option>
+                                <option value="">Dịch vụ thành lập công ty</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <div class="form-group mb-15 mt-0">
+                        <input name="form_botcheck" class="form-control" type="hidden" value="">
+                        <button type="submit" class="btn text-white btn-lg btn-flat btn-theme-colored2 form-control" data-loading-text="Please wait...">ĐĂNG KÝ TƯ VẤN</button>
+                    </div>
+                </div>
+            </form>
+            <!-- Reservation Form End-->
+
+            <!-- Reservation Form Validation Start-->
+            <script type="text/javascript">
+                $("#reservation_form").validate({
+                    submitHandler: function(form) {
+                        var form_btn = $(form).find('button[type="submit"]');
+                        var form_result_div = '#form-result';
+                        $(form_result_div).remove();
+                        form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+                        var form_btn_old_msg = form_btn.html();
+                        form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+                        $(form).ajaxSubmit({
+                            dataType: 'json',
+                            success: function(data) {
+                                if (data.status == 'true') {
+                                    $(form).find('.form-control').val('');
+                                }
+                                form_btn.prop('disabled', false).html(form_btn_old_msg);
+                                $(form_result_div).html(data.message).fadeIn('slow');
+                                setTimeout(function() {
+                                    $(form_result_div).fadeOut('slow')
+                                }, 6000);
+                            }
+                        });
+                    }
+                });
+            </script>
+            <!-- Reservation Form Validation Start -->
+        </div>
+    </div>
+</div>

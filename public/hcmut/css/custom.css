@@ -1,0 +1,19 @@
+.breadcrumb li a {
+    color: #fff;
+    font-weight: bold;
+}
+section > .container, section > .container-fluid {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.blog-posts.single-post img {
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+}
+.tagline .tags p {
+    font-style: italic;
+}
+span.required {
+    color: #ff0000;
+}

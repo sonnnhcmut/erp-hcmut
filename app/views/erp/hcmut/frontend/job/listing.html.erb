@@ -1,0 +1,34 @@
+<!-- Section: inner-header -->
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="/hcmut/images/bg/slide1.jpg">
+    <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title text-white">TUYỂN DỤNG</h1>
+                    <ol class="breadcrumb text-left text-black mt-10">
+                        <li><%= link_to 'Trang Chủ', erp_hcmut.root_path %></li>
+                        <li class="active text-gray-silver">Tuyển Dụng</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pb-0">
+        <div class="row text-center">
+            <% (0..5).each do |job| %>
+                <div class="col-sm-4">
+                    <div class="icon-box iconbox-border iconbox-theme-colored p-40">
+                        <%= link_to '<i class="pe-7s-users"></i>'.html_safe, erp_hcmut.job_detail_path, title: '', class: 'icon icon-gray icon-bordered icon-border-effect effect-flat' %>
+                        <h5 class="icon-box-title">Nhân Viên Kế Toán, Thực Tập</h5>
+                        <p class="text-gray">Vị trí tuyển dụng: Nhân viên thuộc lĩnh vực: Kế toán, thuế, kiểm toán...</p>
+                        <%= link_to 'NỘP HỒ SƠ', erp_hcmut.job_detail_path, title: '', class: 'btn btn-dark btn-sm mt-15' %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
