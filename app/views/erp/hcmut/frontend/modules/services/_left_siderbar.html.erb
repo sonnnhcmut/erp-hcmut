@@ -1,0 +1,105 @@
+<div class="sidebar sidebar-left mt-sm-30 ml-40">
+    <div class="widget">
+        <h4 class="widget-title line-bottom">Danh Sách <span class="text-theme-colored2">Dịch Vụ</span></h4>
+        <div class="services-list">
+            <ul class="list list-border">
+                <li  class="active">
+                    <%= link_to 'Kế Toán Trọn Gói', erp_hcmut.service_detail_path, title: '' %>
+                </li>
+                <% (0..4).each do |service| %>
+                    <li>
+                        <%= link_to 'Báo Cáo Tài Chính', erp_hcmut.service_detail_path, title: '' %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>    
+    <div class="widget">
+        <h4 class="widget-title line-bottom mt-30"><i class="fa fa-download mr-10 text-theme-colored"></i>Tải Về <span class="text-theme-colored2">Tài Liệu</span></h4>
+        <hr class="mt-0">
+        <ul class="nav nav-pills nav-stacked nav-sidebar">
+            <li>
+                <a href="#">
+                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
+                    gioi-thieu-dich-vu.pdf
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
+                    noi-dung-dang-ky.pdf
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
+                    ho-so-dang-ky.pdf
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="widget">
+        <h4 class="widget-title line-bottom">Giờ <span class="text-theme-colored2">Làm Việc</span></h4>
+        <div class="opening-hours">
+            <ul class="list-border">
+                <li class="clearfix">
+                    <span>Thứ 2 - Thứ 6:</span>
+                    <div class="value pull-right">7:00 - 18:00</div>
+                </li>
+                <li class="clearfix">
+                    <span> Thứ 7:</span>
+                    <div class="value pull-right">7:00 - 12:00</div>
+                </li>
+                <li class="clearfix">
+                    <span>Chủ Nhật:</span>
+                    <div class="value pull-right">Không làm việc</div>
+                </li>
+                <li class="clearfix">
+                    <span>Ngày lễ:</span>
+                    <div class="value pull-right">Không làm việc</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="widget">
+        <h4 class="widget-title line-bottom">Đăng Ký <span class="text-theme-colored2">Tư Vấn</span></h4>
+        <form id="quick_contact_form_sidebar" name="footer_quick_contact_form" class="quick-contact-form" action="includes/quickcontact.php" method="post">
+            <div class="form-group">
+                <input name="form_email" class="form-control" type="text" required="" placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <textarea name="form_message" class="form-control" required="" placeholder="Enter Message" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <input name="form_botcheck" class="form-control" type="hidden" value="" />
+                <button type="submit" class="btn btn-theme-colored btn-flat btn-xs btn-quick-contact text-white pt-5 pb-5" data-loading-text="Please wait...">Send Message</button>
+            </div>
+        </form>
+        <!-- Quick Contact Form Validation-->
+        <script type="text/javascript">
+            $("#quick_contact_form_sidebar").validate({
+                submitHandler: function(form) {
+                    var form_btn = $(form).find('button[type="submit"]');
+                    var form_result_div = '#form-result';
+                    $(form_result_div).remove();
+                    form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+                    var form_btn_old_msg = form_btn.html();
+                    form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+                    $(form).ajaxSubmit({
+                        dataType: 'json',
+                        success: function(data) {
+                            if (data.status == 'true') {
+                                $(form).find('.form-control').val('');
+                            }
+                            form_btn.prop('disabled', false).html(form_btn_old_msg);
+                            $(form_result_div).html(data.message).fadeIn('slow');
+                            setTimeout(function() {
+                                $(form_result_div).fadeOut('slow')
+                            }, 6000);
+                        }
+                    });
+                }
+            });
+        </script>
+    </div>
+</div>

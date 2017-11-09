@@ -70,23 +70,24 @@
 <body class="">
     <div id="wrapper" class="clearfix">
         <!-- preloader -->
-        <!--<div id="preloader">
-          <div id="spinner">
-            <div class="preloader-dot-loading">
-              <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
+        <div id="preloader">
+            <div id="spinner">
+                <div class="preloader-square-swapping">
+                    <div class="cssload-square-part cssload-square-green"></div>
+                    <div class="cssload-square-part cssload-square-pink"></div>
+                    <div class="cssload-square-blend"></div>
+                </div>
             </div>
-          </div>
-          <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
-        </div>--> 
+        </div>
       
         <!-- Header -->
         <%= render "erp/hcmut/frontend/modules/header" %>
         
         <!-- Start main-content -->
         <div class="main-content"> 
-            <%= yield %>
-        <!-- end main-content -->
+            <%= yield %>        
         </div>
+        <!-- End main-content -->
     
         <!-- Footer -->
         <%= render "erp/hcmut/frontend/modules/footer" %>

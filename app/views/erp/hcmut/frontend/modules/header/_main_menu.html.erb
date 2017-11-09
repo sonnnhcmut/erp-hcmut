@@ -1,20 +1,20 @@
 <nav id="menuzord" class="menuzord red">
     <ul class="menuzord-menu">
         <li class="home">
-            <a href="index.html"><i class="fa fa-home font-28"></i></a>
+            <%= link_to '<i class="fa fa-home font-28"></i>'.html_safe, erp_hcmut.root_path, title: 'Quay trở về trang chủ' %>
         </li>
         <li><%= link_to 'Giới Thiệu', erp_hcmut.about_us_path, title: 'Giới Thiệu' %></li>
-        <li><a href="#">Dịch Vụ</a>
+        <li><%= link_to 'Dịch Vụ', erp_hcmut.service_listing_path, title: 'Dịch Vụ' %>
             <ul class="dropdown">
-                <li><a href="">Kế Toán Trọn Gói</a></li>
-                <li><a href="">Quyết Toán Thuế</a></li>
-                <li><a href="">Báo Cáo Tài Chính</a></li>
-                <li><a href="">Bảo Hiểm Xã Hội</a></li>
-                <li><a href="">Kế Toán Trưởng</a></li>
-                <li><a href="">Thành Lập Công Ty</a></li>
+                <li><%= link_to 'Kế Toán Trọn Gói', erp_hcmut.service_detail_path, title: 'Kế Toán Trọn Gói' %></li>
+                <li><%= link_to 'Quyết Toán Thuế', erp_hcmut.service_detail_path, title: 'Quyết Toán Thuế' %></li>
+                <li><%= link_to 'Báo Cáo Tài Chính', erp_hcmut.service_detail_path, title: 'Báo Cáo Tài Chính' %></li>
+                <li><%= link_to 'Bảo Hiểm Xã Hội', erp_hcmut.service_detail_path, title: 'Bảo Hiểm Xã Hội' %></li>
+                <li><%= link_to 'Kế Toán Trưởng', erp_hcmut.service_detail_path, title: 'Kế Toán Trưởng' %></li>
+                <li><%= link_to 'Thành Lập Công Ty', erp_hcmut.service_detail_path, title: 'Thành Lập Công Ty' %></li>
             </ul>
         </li>
-        <li><%= link_to 'Bảng Giá Dịch Vụ', '', title: 'Tin Tức' %></li>
+        <li><%= link_to 'Bảng Giá Dịch Vụ', '', title: 'Bảng Giá Dịch Vụ' %></li>
         <li><%= link_to 'Tin Tức', erp_hcmut.blog_listing_path, title: 'Tin Tức' %></li>
         <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path, title: 'Tuyển Dụng' %></li>
         <li><%= link_to 'Liên Hệ', erp_hcmut.contact_path, title: 'Liên Hệ' %></li>
