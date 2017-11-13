@@ -21,13 +21,13 @@
                     <div class="widget">
                         <ul class="list-inline  text-right flip sm-text-center">
                             <li class="m-0 pl-10">
-                                <%= link_to '<i class="fa fa-user-o mr-5 text-theme-colored2"></i> Đăng Ký'.html_safe,
-                                    erp_hcmut.register_path, title: 'Đăng ký tài khoản', class: 'text-white' %>
-                            </li>
-                            <li class="m-0 pl-0 pr-10">
                                 <%= link_to '<i class="fa fa-edit mr-5 text-theme-colored2"></i> Đăng Nhập'.html_safe,
                                     erp_hcmut.login_path, title: 'Đăng nhập tài khoản', class: 'text-white' %>
                             </li>
+                            <li class="m-0 pl-0 pr-10">
+                                <%= link_to '<i class="fa fa-user-o mr-5 text-theme-colored2"></i> Đăng Ký'.html_safe,
+                                    erp_hcmut.register_path, title: 'Đăng ký tài khoản', class: 'text-white' %>
+                            </li>                            
                         </ul>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget sm-text-center">
                         <i class="fa fa-envelope text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
-                        <a href="#" class="font-12 text-gray text-uppercase">Địa chỉ email</a>
+                        <%= link_to 'Địa chỉ email', 'mailto:info@yourdomain.com', title: '', class: 'font-12 text-gray text-uppercase' %>
                         <h5 class="font-13 text-black m-0"> info@yourdomain.com</h5>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget sm-text-center">
                         <i class="fa fa-building-o text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
-                        <a href="#" class="font-12 text-gray text-uppercase">Địa chỉ</a>
+                        <%= link_to 'Địa chỉ', erp_hcmut.contact_path, title: '', class: 'font-12 text-gray text-uppercase' %>
                         <h5 class="font-13 text-black m-0"> 188 Đường Số 1, P.16, Gò Vấp, TP.HCM, VN</h5>
                     </div>
                 </div>

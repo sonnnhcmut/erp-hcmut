@@ -18,6 +18,9 @@
         <li><%= link_to 'Tin Tức', erp_hcmut.blog_listing_path, title: 'Tin Tức' %></li>
         <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path, title: 'Tuyển Dụng' %></li>
         <li><%= link_to 'Liên Hệ', erp_hcmut.contact_path, title: 'Liên Hệ' %></li>
-        <li class="active pull-right"><a href="tel:+(012) 345 6789" class="font-20 line-height-1"><i class="pe-7s-call mr-10 font-28"></i> (028) 1234 5678</a></li>
+        <li class="active pull-right">
+            <%= link_to '<i class="pe-7s-call mr-10 font-28"></i> (028) 1234 5678'.html_safe,
+                'tel:0123456789' , title: '', class: 'font-20 line-height-1' %>
+        </li>
     </ul>
 </nav>

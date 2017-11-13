@@ -2,121 +2,20 @@
     <div class="container pt-70 pb-40">
         <div class="row border-bottom-black">
             <div class="col-sm-6 col-md-3">
-                <div class="widget dark">
-                    <%= image_tag '/hcmut/images/logo-wide-white.png', alt: '', class: 'mt-10 mb-20' %>
-                    <p>188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh</p>
-                    <ul class="mt-5">
-                        <li class="m-0 pl-0 pr-10">
-                            <i class="fa fa-phone text-theme-colored mr-5"></i>
-                            <a class="text-gray" href="#">123-456-789</a>
-                        </li>
-                        <li class="m-0 pl-0 pr-10">
-                            <i class="fa fa-envelope-o text-theme-colored mr-5"></i>
-                            <a class="text-gray" href="#">contact@yourdomain.com</a>
-                        </li>
-                        <li class="m-0 pl-0 pr-10">
-                            <i class="fa fa-globe text-theme-colored mr-5"></i>
-                            <a class="text-gray" href="#">www.yourdomain.com</a>
-                        </li>
-                        <li class="m-0 pl-0 pr-10">
-                            <i class="fa fa-skype text-theme-colored mr-5"></i>
-                            <a class="text-gray" href="#">nguyenngocson0811</a>
-                        </li>
-                    </ul>
-                </div>
+                <%= render "erp/hcmut/frontend/modules/footer/company_info" %>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="widget dark">
-                    <h5 class="widget-title line-bottom">THÔNG TIN WEBSITE</h5>
-                    <ul class="list-border">
-                        <li><%= link_to 'Trang Chủ', erp_hcmut.root_path, title: 'Trang Chủ' %></li>
-                        <li><%= link_to 'Dịch Vụ', erp_hcmut.service_listing_path, title: 'Dịch Vụ' %></li>
-                        <li><%= link_to 'Bảng giá Dịch Vụ', '', title: 'Bảng giá Dịch Vụ' %></li>
-                        <li><%= link_to 'Tin Tức', erp_hcmut.blog_listing_path, title: 'Tin Tức' %></li>
-                        <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path, title: 'Tuyển Dụng' %></li>
-                        <li><%= link_to 'Liên Hệ', erp_hcmut.contact_path, title: 'Liên Hệ' %></li>
-                    </ul>
-                </div>
+                <%= render "erp/hcmut/frontend/modules/footer/website_info" %>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="widget dark">
-                    <h5 class="widget-title line-bottom">DỊCH VỤ KẾ TOÁN</h5>
-                    <div class="categories">
-                        <ul class="list-border">
-                            <% (0..5).each do |service| %>
-                                <li>
-                                    <%= link_to '<span>Báo Cáo Tài Chính</span>'.html_safe,
-                                                erp_hcmut.service_detail_path, title: '' %>
-                                </li>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
+                <%= render "erp/hcmut/frontend/modules/footer/finance_services" %>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="widget dark">
-                    <h5 class="widget-title line-bottom">GIỜ LÀM VIỆC</h5>
-                    <div class="opening-hours">
-                        <ul class="list-border">
-                            <li class="clearfix text-white">
-                                <span>Thứ 2 - Thứ 6:</span>
-                                <div class="value pull-right">7:00 - 18:00</div>
-                            </li>
-                            <li class="clearfix">
-                                <span> Thứ 7:</span>
-                                <div class="value pull-right">7:00 - 12:00</div>
-                            </li>
-                            <li class="clearfix">
-                                <span>Chủ Nhật:</span>
-                                <div class="value pull-right">Không làm việc</div>
-                            </li>
-                            <li class="clearfix">
-                                <span>Ngày lễ:</span>
-                                <div class="value pull-right">Không làm việc</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <%= render "erp/hcmut/frontend/modules/footer/time_working" %>
             </div>
         </div>
     </div>
     <div class="footer-bottom bg-black-222">
-        <div class="container pt-10 pb-0">
-            <div class="row">
-                <div class="col-md-6 sm-text-center">
-                    <p class="font-13 text-black-777 m-0">
-                        Copyright &copy; 2017
-                        <%= link_to 'Công Ty Kế Toán', erp_hcmut.root_path, title: '' %>.
-                        All Rights Reserved
-                    </p>
-                </div>
-                <div class="col-md-6 text-right flip sm-text-center">
-                    <div class="widget no-border m-0">
-                        <ul class="styled-icons icon-dark icon-circled icon-sm">
-                            <li>
-                                <a href="" data-bg-color="#3B5998" style="background: rgb(59, 89, 152) !important;">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" data-bg-color="#D71619" style="background: rgb(215, 22, 25) !important;">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" data-bg-color="#F52525" style="background: rgb(245, 37, 37) !important;">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" data-bg-color="#3BBEF4" style="background: rgb(59, 190, 244) !important;">
-                                    <i class="fa fa-skype"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <%= render "erp/hcmut/frontend/modules/footer/copyright" %>
     </div>
 </footer>
