@@ -1,3 +1,6 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: sans-serif;
+}
 .breadcrumb li a {
     color: #fff;
     font-weight: bold;
@@ -16,4 +19,13 @@ section > .container, section > .container-fluid {
 }
 span.required {
     color: #ff0000;
+}
+.pagination-hcmut {
+    text-align: right;
+}
+.pagination-hcmut ul.pagination.pagination {
+    margin: 0 0 10px 0;
+}
+.pagination-hcmut .row.pagination-row div:first-child div {
+    display: none;
 }
