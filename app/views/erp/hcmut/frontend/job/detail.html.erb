@@ -5,11 +5,11 @@
         <div class="section-content">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="title text-white">GIỚI THIỆU</h1>
+                    <h1 class="title text-white">THÔNG TIN TUYỂN DỤNG</h1>
                     <ol class="breadcrumb text-left text-black mt-10">
                         <li><%= link_to 'Trang Chủ', erp_hcmut.root_path %></li>
                         <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path %></li>
-                        <li class="active text-gray-silver">Chi Tiết Tuyển Dụng</li>
+                        <li class="active text-gray-silver"><%= @recruitment.name %></li>
                     </ol>
                 </div>
             </div>
@@ -26,107 +26,27 @@
                         <dt><i class="fa fa-calendar text-theme-colored mt-5 font-15"></i></dt>
                         <dd>
                             <h5 class="mt-0">Hạn nộp hồ sơ:</h5>
-                            <p>20-11-2017</p>
+                            <p><%= @recruitment.created_at.strftime('%d/%m/%Y') %></p>
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
                         <dt><i class="fa fa-user text-theme-colored mt-5 font-15"></i></dt>
                         <dd>
                             <h5 class="mt-0">Vị trí:</h5>
-                            <p>Nhân viên kế toán, thực tập</p>
+                            <p><%= @recruitment.position %></p>
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
                         <dt><i class="fa fa-money text-theme-colored mt-5 font-15"></i></dt>
                         <dd>
                             <h5 class="mt-0">Mức lương:</h5>
-                            <p>Thỏa thuận</p>
+                            <p><%= @recruitment.salary_grade %></p>
                         </dd>
                     </dl>
-                    <a class="btn btn-dark mt-20" data-toggle="modal" data-target="#myModal" href="#">GỬI HỒ SƠ</a>
+                    <!--<a class="btn btn-dark mt-20" data-toggle="modal" data-target="#myModal" href="#">GỬI HỒ SƠ</a>-->
+                    <%= link_to 'Nộp hồ sơ', apply_link(@recruitment), class: 'btn btn-dark mt-20' %>
                     <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content p-30 pt-10">
-                                <h3 class="text-center text-theme-colored mb-20">THÔNG TIN HỒ SƠ ĐĂNG KÝ</h3>
-                                <form id="job_apply_form" name="job_apply_form" action="includes/job.php" method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Họ & Tên <span class="required">*</span></label>
-                                                <input name="form_name" type="text" placeholder="Nhập họ & tên tại đây....." required="" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="form_email">Địa chỉ email <span class="required">*</span></label>
-                                                <input name="form_email" class="form-control required email" type="email" placeholder="Nhập địa chỉ email.....">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Giới tính <span class="required">*</span></label>
-                                                <select name="form_sex" class="form-control required">
-                                                    <option value="">Nam</option>
-                                                    <option value="">Nữ</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Vị trí ứng tuyển <span class="required">*</span></label>
-                                                <select name="form_post" class="form-control required">
-                                                    <option value="">Nhân viên kế toán</option>
-                                                    <option value="">Thực tập sinh</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ghi chú</label>
-                                        <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Nhập ghi chú - lời nhắn cho chúng tôi tại đây (nếu có)"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tải lên CV <span class="required">*</span></label>
-                                        <input name="form_attachment" class="file" type="file" multiple data-show-upload="false" data-show-caption="true">
-                                        <small>Kích thước file CV tối đa: 12 MB</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                                        <button type="submit" class="btn btn-block btn-dark btn-theme-colored btn-sm mt-20 pt-10 pb-10" data-loading-text="Please wait...">Xác Nhận Gửi Hồ Sơ Đăng Ký</button>
-                                    </div>
-                                </form>
-                                <!-- Job Form Validation-->
-                                <script type="text/javascript">
-                                    $("#job_apply_form").validate({
-                                        submitHandler: function(form) {
-                                            var form_btn = $(form).find('button[type="submit"]');
-                                            var form_result_div = '#form-result';
-                                            $(form_result_div).remove();
-                                            form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                            var form_btn_old_msg = form_btn.html();
-                                            form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                            $(form).ajaxSubmit({
-                                                dataType: 'json',
-                                                success: function(data) {
-                                                    if (data.status == 'true') {
-                                                        $(form).find('.form-control').val('');
-                                                    }
-                                                    form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                                    $(form_result_div).html(data.message).fadeIn('slow');
-                                                    setTimeout(function() {
-                                                        $(form_result_div).fadeOut('slow')
-                                                    }, 6000);
-                                                }
-                                            });
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                    </div>
+                    <!--render "erp/hcmut/frontend/modules/job/apply_modal"-->
                 </div>
             </div>
             <div class="col-md-9">
@@ -134,26 +54,21 @@
                     <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
                 <i class="pe-7s-users"></i>
               </a>
-                    <h2 class="icon-box-title pt-15 mt-0 mb-40">04 Nhân Viên Kế Toán, Thực Tập</h2>
+                    <h2 class="icon-box-title pt-15 mt-0 mb-40"><%= @recruitment.name %></h2>
                     <hr>
-                    <p class="text-gray">Dịch vụ kế toán : Dịch vụ kế toán trọn gói, dịch vụ kế  toán trưởng, dịch vụ soát xét kế toán</p>
-                    <p class="text-gray">Dịch vụ tư vấn thuế: Dịch vụ kê khai thuế, Dịch vụ tư vấn hoàn thuế, Dịch vụ soát xét về thuế, Dịch vụ quyết toán thuế</p>
-                    <p class="text-gray">Dịch vụ tư vấn đầu tư: Dịch vụ làm thủ tục về giấy phép và các thủ tục khách liên quan đến hoạt động đầu tư</p>
+                    <%= @recruitment.description.html_safe %>
                 </div>
                 <h5 class="mt-30">Mô tả công việc:</h5>
                 <ul class="list theme-colored">
-                    <li>Thực hiện, hướng dẫn nhân viên thực hiện các công việc kế toán và báo cáo thuế cho khách hàng.</li>
-                    <li>Tổ chức, phân công, kiểm soát công việc và chất lượng công việc trong bộ phận mình.</li>
-                    <li>Liên hệ, thực hiện tư vấn cho khách hàng các vấn đề phát sinh, theo yêu cầu công việc.</li>
-                    <li>Phiên dịch, hỗ trợ phiên dịch cho các cuộc họp, tư vấn khách hàng.</li>
+                    <%= @recruitment.task.html_safe %>
                 </ul>
                 <h5 class="mt-30">Yêu cầu tuyển dụng:</h5>
                 <ul class="list theme-colored">
-                    <li>Kinh nghiệm: Không yêu cầu kinh nghiệm</li>
-                    <li>Học vấn: Tốt nghiệp đại học</li>
-                    <li>Nơi ở: Khu vực quận 7 hoặc tương đương, thời gian tới văn phòng 15-20 phút xe máy.</li>
-                    <li>Giới tính: Nam/Nữ</li>
-                    <li>Yêu cầu khác: Trung thực, Ham học hỏi, Biết tiếng Anh là một lợi thế</li>
+                    <%= @recruitment.require.html_safe %>
+                </ul>
+                <h5 class="mt-30">Quyền lợi làm việc:</h5>
+                <ul class="list theme-colored">
+                    <%= @recruitment.interest.html_safe %>
                 </ul>
             </div>
         </div>

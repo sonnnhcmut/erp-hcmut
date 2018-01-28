@@ -1,0 +1,80 @@
+<!-- Section: inner-header -->
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="/hcmut/images/bg/slide1.jpg">
+    <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title text-white">THÔNG TIN TUYỂN DỤNG</h1>
+                    <ol class="breadcrumb text-left text-black mt-10">
+                        <li><%= link_to 'Trang Chủ', erp_hcmut.root_path %></li>
+                        <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path %></li>
+                        <li class="active text-gray-silver"><%= @recruitment.name %></li>
+                        <li class="active text-gray-silver">Nộp hồ sơ</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h3 class="text-center text-theme-colored mb-20">THÔNG TIN HỒ SƠ ĐĂNG KÝ</h3>
+                <%= form_for '', url: erp_hcmut.job_apply_path(recruit_id: @recruitment.id), html: {id: "job_apply_form", multipart: true} do |f| %>
+                    <input type="hidden" name="apply[recruitment_id]" value="<%= @recruitment.id %>" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Họ & Tên <span class="required">*</span></label>
+                                <input name="apply[name]" type="text"
+                                    placeholder="Nhập họ & tên đầy đủ" required="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Giới tính <span class="required">*</span></label>
+                                <select name="apply[gender]" class="form-control required">
+                                    <option value="male">Nam</option>
+                                    <option value="female">Nữ</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="form_email">Địa chỉ email <span class="required">*</span></label>
+                                <input name="apply[email]" type="email"
+                                    placeholder="Nhập địa chỉ email" class="form-control required email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Số điện thoại <span class="required">*</span></label>
+                                <input name="apply[phone]" type="text"
+                                    placeholder="Nhập số điện thoại" required="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú</label>
+                        <textarea id="form_message" name="apply[note]" class="form-control required" rows="5" placeholder="Nhập ghi chú - lời nhắn cho chúng tôi tại đây (nếu có)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tải lên CV <span class="required">*</span></label>
+                        <input name="apply[cv_file]" class="file" type="file" multiple data-show-upload="false" data-show-caption="true">
+                        <small>Kích thước file CV tối đa: 12 MB</small>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-dark btn-theme-colored btn-sm mt-20 pt-10 pb-10">Xác Nhận Gửi Hồ Sơ Đăng Ký</button>
+                    </div>
+                <% end %>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</section>

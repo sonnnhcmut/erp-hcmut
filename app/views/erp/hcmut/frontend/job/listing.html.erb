@@ -18,17 +18,33 @@
 
 <section>
     <div class="container pb-0">
-        <div class="row text-center">
-            <% (0..5).each do |job| %>
-                <div class="col-sm-4">
-                    <div class="icon-box iconbox-border iconbox-theme-colored p-40">
-                        <%= link_to '<i class="pe-7s-users"></i>'.html_safe, erp_hcmut.job_detail_path, title: '', class: 'icon icon-gray icon-bordered icon-border-effect effect-flat' %>
-                        <h5 class="icon-box-title">Nhân Viên Kế Toán, Thực Tập</h5>
-                        <p class="text-gray">Vị trí tuyển dụng: Nhân viên thuộc lĩnh vực: Kế toán, thuế, kiểm toán...</p>
-                        <%= link_to 'NỘP HỒ SƠ', erp_hcmut.job_detail_path, title: '', class: 'btn btn-dark btn-sm mt-15' %>
+        <% if @recruitments.count > 0 %>
+            <div class="row text-center">
+                <% @recruitments.each do |recruit| %>
+                    <div class="col-sm-4">
+                        <div class="icon-box iconbox-border iconbox-theme-colored p-40">
+                            <%= link_to '<i class="pe-7s-users"></i>'.html_safe, recruitment_link(recruit),
+                                title: recruit.name, class: 'icon icon-gray icon-bordered icon-border-effect effect-flat'
+                            %>
+                            <h5 class="icon-box-title"><%= recruit.name %></h5>
+                            <p class="text-gray">
+                                Vị trí: <%= short_text(recruit.position, 6) %><br />
+                                Hạn nộp hồ sơ: <%= recruit.created_at.strftime('%d/%m/%Y') %>
+                            </p>
+                            <%= link_to 'XEM CHI TIẾT', recruitment_link(recruit), title: recruit.name, class: 'btn btn-dark btn-sm mt-15' %>
+                        </div>
                     </div>
+                <% end %>
+            </div>
+            <div class="row">
+                <div class="pagination-hcmut">
+                    <%= erp_datalist_pagination(@recruitments) %>
                 </div>
-            <% end %>
-        </div>
+            </div>
+        <% else %>
+            <div class="alert alert-warning">
+                <i class="fa fa-warning"></i> Hiện chưa có đợt tuyển dụng nào.
+            </div>
+        <% end %>
     </div>
 </section>

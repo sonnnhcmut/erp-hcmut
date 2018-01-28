@@ -8,7 +8,9 @@ Erp::Hcmut::Engine.routes.draw do
   get "tin-tuc.html" => "frontend/blog#listing", as: :blog_listing
   get "tin-tuc/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "tuyen-dung.html" => "frontend/job#listing", as: :job_listing
-  get "tuyen-dung/chi-tiet.html" => "frontend/job#detail", as: :job_detail
+  get "tuyen-dung/:recruit_id(/:title).html" => "frontend/job#detail", as: :job_detail
+  get "nop-ho-so/:recruit_id(/:title).html" => "frontend/job#apply_form", as: :job_apply
+	post "nop-ho-so/:recruit_id(/:title).html" => "frontend/job#apply_form"
   get "lien-he.html" => "frontend/contact#index", as: :contact
   post "lien-he.html" => "frontend/contact#index"
   get "nhan-tin-thanh-cong.html" => "frontend/contact#send_message_success", as: :contact_success

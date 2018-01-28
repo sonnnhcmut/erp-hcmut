@@ -23,12 +23,8 @@ module Erp
                     redirect_to erp_hcmut.contact_success_path, flash: { notice: 'Yêu cầu đã được gửi đến chúng tôi.\n Chúng tôi sẽ sớm liên hệ với bạn.'}
                   }
                 end
-                logger.info '====================='
-                logger.info @msg.errors.to_json
               end
             else
-              logger.info '====================='
-              logger.info @contact.errors.to_json
               redirect_back(fallback_location: @contact, flash: { error: 'Chặn! Vui lòng kiểm tra lại thông tin đã nhập.' })
             end
           end
