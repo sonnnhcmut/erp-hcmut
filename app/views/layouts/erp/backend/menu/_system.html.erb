@@ -1,0 +1,32 @@
+<li class="nav-item  <%= "active open" if (params[:controller] == "erp/backend/users") ||
+                                         (params[:controller] == "erp/backend/user_groups") %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-settings"></i>
+        <span class="title">Cài đặt hệ thống</span>
+        <% if (params[:controller] == "erp/backend/users") ||
+              (params[:controller] == "erp/backend/user_groups") %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/backend/users"].include?(params[:controller]) %>">
+            <a href="<%= erp.backend_users_path %>" class="nav-link ">
+                <span class="title">Quản lý người dùng</span>
+                <% if ["erp/backend/users"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+        <li class="nav-item <%= "active open" if ["erp/backend/user_groups"].include?(params[:controller]) %>">
+            <a href="<%= erp.backend_user_groups_path %>" class="nav-link ">
+                <span class="title">Nhóm & Phân quyền</span>
+                <% if ["erp/backend/user_groups"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>

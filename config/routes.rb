@@ -4,7 +4,7 @@ Erp::Hcmut::Engine.routes.draw do
   get "dang-ky.html" => "frontend/account#register", as: :register
   get "gioi-thieu.html" => "frontend/about_us#index", as: :about_us
   get "dich-vu.html" => "frontend/service#listing", as: :service_listing
-  get "dich-vu/chi-tiet.html" => "frontend/service#detail", as: :service_detail
+  get "dich-vu//:service_id(/:title).html" => "frontend/service#detail", as: :service_detail
   get "tin-tuc.html" => "frontend/blog#listing", as: :blog_listing
   get "tin-tuc/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "tuyen-dung.html" => "frontend/job#listing", as: :job_listing

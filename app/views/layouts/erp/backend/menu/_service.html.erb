@@ -1,0 +1,22 @@
+<li class="nav-item  <%= "active open" if (params[:controller] == "erp/finances/backend/services") %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-balance-scale"></i>
+        <span class="title">Dịch vụ</span>
+        <% if (params[:controller] == "erp/finances/backend/services") %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/finances/backend/services"].include?(params[:controller]) %>">
+            <a href="<%= erp_finances.backend_services_path %>" class="nav-link ">
+                <span class="title">Danh sách dịch vụ</span>
+                <% if ["erp/finances/backend/services"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>

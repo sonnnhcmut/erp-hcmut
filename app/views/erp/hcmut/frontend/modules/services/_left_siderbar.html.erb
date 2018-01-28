@@ -3,41 +3,28 @@
         <h4 class="widget-title line-bottom">Danh Sách <span class="text-theme-colored2">Dịch Vụ</span></h4>
         <div class="services-list">
             <ul class="list list-border">
-                <li  class="active">
-                    <%= link_to 'Kế Toán Trọn Gói', erp_hcmut.service_detail_path, title: '' %>
-                </li>
-                <% (0..4).each do |service| %>
-                    <li>
-                        <%= link_to 'Báo Cáo Tài Chính', erp_hcmut.service_detail_path, title: '' %>
+                <% Erp::Finances::Service.get_services.each do |service| %>
+                    <% if service.id == params[:service_id].to_i %><li class="active"><% else %><li><% end %>
+                        <%= link_to service.get_name, service_link(service), title: service.get_name %>
                     </li>
                 <% end %>
             </ul>
         </div>
-    </div>    
+    </div>
+    <% if service.brochures_url.present? || service.link_docs.present? %>
     <div class="widget">
         <h4 class="widget-title line-bottom mt-30"><i class="fa fa-download mr-10 text-theme-colored"></i>Tải Về <span class="text-theme-colored2">Tài Liệu</span></h4>
         <hr class="mt-0">
         <ul class="nav nav-pills nav-stacked nav-sidebar">
-            <li>
-                <a href="#">
-                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
-                    gioi-thieu-dich-vu.pdf
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
-                    noi-dung-dang-ky.pdf
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-file-pdf-o text-theme-colored2"></i>
-                    ho-so-dang-ky.pdf
-                </a>
-            </li>
+            <% if service.brochures_url.present? %>
+                <li><%= link_to '<i class="fa fa-file-pdf-o text-theme-colored2"></i> Tài liệu giới thiệu'.html_safe, service.brochures_url %></li>
+            <% end %>
+            <% if service.link_docs.present? %>
+                <li><%= link_to '<i class="fa fa-cloud-download text-theme-colored2"></i> Tài liệu khác'.html_safe, service.link_docs %></li>
+            <% end %>
         </ul>
     </div>
+    <% end %>
     <div class="widget">
         <h4 class="widget-title line-bottom">Giờ <span class="text-theme-colored2">Làm Việc</span></h4>
         <div class="opening-hours">

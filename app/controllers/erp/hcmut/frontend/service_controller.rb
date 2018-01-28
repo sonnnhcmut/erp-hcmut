@@ -6,6 +6,9 @@ module Erp
         end
         
         def detail
+          @service = Erp::Finances::Service.find(params[:service_id])
+          @meta_keywords = @service.meta_keywords
+          @meta_description = @service.meta_description
         end
       end
     end

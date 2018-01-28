@@ -21,19 +21,19 @@
     <div class="container">
         <div class="section-content">
             <div class="row">
-                <% (0..5).each do |service| %>
+                <% Erp::Finances::Service.get_services.each do |service| %>
                 <div class="col-md-4 col-sm-6">
                     <div class="project mb-20">
                         <div class="thumb">
-                            <%= image_tag '/hcmut/images/about/1.jpg', alt: '', class: 'img-fullwidth' %>
+                            <%= image_tag service.image_url.home, alt: service.get_name, class: 'img-fullwidth' %>
                             <div class="hover-link">
                                 <%= link_to '<i class="fa fa-arrows"></i>'.html_safe,
-                                            erp_hcmut.service_detail_path, title: 'Xem chi tiết dịch vụ' %>
+                                            service_link(service), title: 'Xem Chi Tiết Dịch Vụ: ' + service.get_name %>
                             </div>
                         </div>
-                        <h3 class="text-theme-colored">Báo Cáo Tài Chính</h3>
-                        <p class="text-justify">Quý khách hàng đang lo lắng, không tin tưởng và không yên tâm về họat động của phòng kế toán, bộ phận dịch vụ kế toán trọn gói, nhân viên kế toán của chính công ty mình?</p>
-                        <%= link_to 'XEM CHI TIẾT', erp_hcmut.service_detail_path, title: '', class: 'btn btn-sm btn-theme-colored2 text-white' %>
+                        <h3 class="text-theme-colored"><%= link_to service.get_name, service_link(service), title: service.get_name %></h3>
+                        <p class="text-justify"><%= truncate(service.description, length: 150) %></p>
+                        <%= link_to 'XEM CHI TIẾT', service_link(service), title: service.get_name, class: 'btn btn-sm btn-theme-colored2 text-white' %>
                     </div>
                 </div>
                 <% end %>
