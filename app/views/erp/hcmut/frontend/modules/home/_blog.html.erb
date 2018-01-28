@@ -1,56 +1,59 @@
-<div class="container">
-    <div class="section-title text-center">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2 class="text-uppercase line-bottom-double-line-centered mt-0">Bài Viết <span class="text-theme-colored2">Mới Nhất</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati! <br>ipsum dolor sit Rem autem voluptatem obcaecati</p>
+<% if !Erp::Articles::Article.newest_articles.empty? %>
+    <div class="container">
+        <div class="section-title text-center">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="text-uppercase line-bottom-double-line-centered mt-0">Bài Viết <span class="text-theme-colored2">Mới Nhất</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="section-content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="owl-carousel-3col owl-nav-top" data-nav="true">
-                    <% (0..2).each do |blog| %>
-                        <div class="item">
-                            <article class="post clearfix campaign mb-30">
-                                <div class="entry-header">
-                                    <div class="post-thumb thumb">
-                                        <%= image_tag '/hcmut/images/blog/1.jpg', alt: '', class: 'img-responsive img-fullwidth' %>
-                                    </div>
-                                    <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
-                                        <ul>
-                                            <li class="font-16 text-white font-weight-600">28</li>
-                                            <li class="font-12 text-white text-uppercase">Feb</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="entry-content p-20 border-bottom-2px border-theme-colored2 bg-white">
-                                    <div class="entry-meta media mt-0 mb-10">
-                                        <div class="media-body pl-0">
-                                            <div class="event-content pull-left flip">
-                                                <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5">
-                                                    <%= link_to 'Post title here', '', title: '' %>
-                                                </h4>
-                                                <span class="mb-10 text-gray-darkgray mr-10 font-13">
-                                                    <i class="fa fa-commenting-o mr-5 text-theme-colored"></i>
-                                                    214 Comments
-                                                </span>
-                                                <span class="mb-10 text-gray-darkgray mr-10 font-13">
-                                                    <i class="fa fa-heart-o mr-5 text-theme-colored"></i>
-                                                    895 Likes
-                                                </span>
-                                            </div>
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel-3col owl-nav-top" data-nav="true">
+                        <% Erp::Articles::Article.newest_articles(10).each do |blog| %>
+                            <div class="item">
+                                <article class="post clearfix campaign mb-30">
+                                    <div class="entry-header">
+                                        <div class="post-thumb thumb">
+                                            <%= link_to image_tag(blog.image.newest_thumb, alt: blog.name), article_link(blog), class: "img-responsive img-fullwidth" %>
+                                        </div>
+                                        <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
+                                            <ul>
+                                                <li class="font-12 text-white font-weight-600">28/01</li>
+                                                <li class="font-11 text-white text-uppercase">2017</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <p class="mt-5 text-justify">Lorem ipsum dolor sit amet, consectetur adipisi cing elit. Molestias eius illum libero dolor</p>
-                                    <%= link_to 'Xem chi tiết', '', title: '', class: 'btn btn-theme-colored2 btn-sm text-white' %>
-                                </div>
-                            </article>
-                        </div>
-                    <% end %>
+                                    <div class="entry-content p-20 border-bottom-2px border-theme-colored2 bg-white">
+                                        <div class="entry-meta media mt-0 mb-10">
+                                            <div class="media-body pl-0">
+                                                <div class="event-content pull-left flip">
+                                                    <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5">
+                                                        <%= link_to blog.name, article_link(blog), title: blog.name %>
+                                                    </h4>
+                                                    <!--<span class="mb-10 text-gray-darkgray mr-10 font-13">-->
+                                                    <!--    <i class="fa fa-commenting-o mr-5 text-theme-colored"></i>-->
+                                                    <!--    214 Comments-->
+                                                    <!--</span>-->
+                                                    <!--<span class="mb-10 text-gray-darkgray mr-10 font-13">-->
+                                                    <!--    <i class="fa fa-heart-o mr-5 text-theme-colored"></i>-->
+                                                    <!--    895 Likes-->
+                                                    <!--</span>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-5 text-justify">
+                                            <%= short_text(blog.content, 35) %> [...]
+                                        </p>
+                                        <%= link_to 'Xem chi tiết', article_link(blog), title: blog.name, class: 'btn btn-theme-colored2 btn-sm text-white' %>
+                                    </div>
+                                </article>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+s<% end %>
