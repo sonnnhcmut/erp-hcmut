@@ -1,0 +1,225 @@
+<div class="form-body custom-show">
+    <div class="row">
+        <div class="col-md-6"><!--form-control-mb-10-->
+            <div class="portlet light bordered">
+                <div class="portlet-body form">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%= erp_form_control('image', {
+                                img_src: contact.image_url.medium,
+                                name: 'contact[image_url]',
+                                width: 100,
+                                height: 100,
+                                button: 'btn-no',
+                                class: 'mb-10'
+                            }) %>
+                        </div>
+                        <div class="col-md-9">
+                                <h4 class="profile-desc-title bold font-blue-madison"><%= contact.contact_name %> <sup><span class="label label-sm"><%= t("#{contact.contact_type}") %></span></sup></h4>
+                                <span class="text-semibold">
+                                # <%= contact.code %>
+                                </span>
+                                <hr>
+                            <div class="form-group mb-5">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.phone') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.phone %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.email_address') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.email %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group mb-5">
+                                <div class="row">
+                                    <label class="col-md-3 control-label"><%= t('.contact_group') %>:</label>
+                                    <div class="col-md-9 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.contact_group_name %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-5">
+                                <div class="row">
+                                    <label class="col-md-3 control-label"><%= t('.type') %>:</label>
+                                    <div class="col-md-4 control-label">
+                                        <i class="glyphicon glyphicon-<%= contact.is_customer? ? 'check' : 'unchecked' %>"></i> <%= t('.is_customer') %>
+                                    </div>
+                                    <div class="col-md-4 control-label">
+                                        <i class="glyphicon glyphicon-<%= contact.is_supplier? ? 'check' : 'unchecked' %>"></i> <%= t('.is_supplier') %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-5">
+                                <div class="row">
+                                    <label class="col-md-3 control-label"><%= t('.address') %>:</label>
+                                    <div class="col-md-9 control-label">
+                                        <span class="text-semibold">
+                                            <%= display_contact_address(contact) %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-body form">
+                    <div class="row">
+                        <% if contact.contact_type == Erp::Contacts::Contact::TYPE_PERSON %>
+                        <div class="col-md-6">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-6 control-label"><%= t('.birthday') %>:</label>
+                                    <div class="col-md-6 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.birthday %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6    ">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-6 control-label"><%= t('.gender') %>:</label>
+                                    <div class="col-md-6 control-label">
+                                        <span class="text-semibold">
+                                            <%= t(contact.gender) %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
+                        <% if contact.contact_type == Erp::Contacts::Contact::TYPE_COMPANY %>
+                        <div class="col-md-6">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.tax') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.tax_code %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.fax') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.fax %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
+                        <div class="col-md-12">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.website') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.website %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.salesperson') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.salesperson_name %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.commission_percent') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= contact.commission_percent.to_s + '%' if !contact.commission_percent.nil? %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-10">
+                                <div class="row">
+                                    <label class="col-md-4 control-label"><%= t('.new_account_commission') %>:</label>
+                                    <div class="col-md-8 control-label">
+                                        <span class="text-semibold">
+                                            <%= format_price(0000) %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-5">
+                                <label class="control-label"><%= t('.notes') %>:</label>
+                                <span class="text-semibold">
+                                    <%= contact.note %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if contact.contacts.count > 0 %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-body form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="profile-desc-title bold font-blue-madison"><%= contact.contact_name + ' - ' + t('.contact_child') %></h5>
+                            <hr>
+                        </div>
+                        <% contact.contacts.each do |child_contact| %>
+                            <div class="col-md-4 alert-margin-0">
+                            <%= render 'backend/contacts_contacts/contact', contact: child_contact, editable: false %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

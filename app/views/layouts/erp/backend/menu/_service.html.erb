@@ -1,8 +1,10 @@
-<li class="nav-item  <%= "active open" if (params[:controller] == "erp/finances/backend/services") %>">
+<li class="nav-item  <%= "active open" if (params[:controller] == "erp/finances/backend/services") ||
+                                           (params[:controller] == "erp/finances/backend/service_registers") %>">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-balance-scale"></i>
         <span class="title">Dịch vụ</span>
-        <% if (params[:controller] == "erp/finances/backend/services") %>
+        <% if (params[:controller] == "erp/finances/backend/services") ||
+               (params[:controller] == "erp/finances/backend/service_registers") %>
             <span class="selected"></span>
             <span class="arrow open"></span>
         <% else %>
@@ -14,6 +16,14 @@
             <a href="<%= erp_finances.backend_services_path %>" class="nav-link ">
                 <span class="title">Danh sách dịch vụ</span>
                 <% if ["erp/finances/backend/services"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+        <li class="nav-item <%= "active open" if ["erp/finances/backend/service_registers"].include?(params[:controller]) %>">
+            <a href="<%= erp_finances.backend_service_registers_path %>" class="nav-link ">
+                <span class="title">Đăng ký dịch vụ</span>
+                <% if ["erp/finances/backend/service_registers"].include?(params[:controller]) %>
                 <span class="selected"></span>
                 <% end %>
             </a>

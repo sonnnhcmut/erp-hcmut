@@ -1,0 +1,120 @@
+<%= form_for([erp_contacts, :backend, contact], html: {multipart: true}) do |f| %>
+    <div class="form-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="portlet light bordered">
+                    <div class="portlet-body form">
+                        <%= erp_form_control("text", {
+                            name: 'contact[code]',
+                            value: contact.code,
+                            label: t('.code'),
+                            placeholder: t('.enter_code'),
+                            errors: contact.errors.full_messages_for(:code)
+                        }) %>                        
+                        <%= erp_form_control("text", {
+                            name: 'contact[name]',
+                            value: contact.name,
+                            label: t('.name'),
+                            placeholder: t('.enter_name'),
+                            required: true,
+                            errors: contact.errors.full_messages_for(:name)
+                        }) %>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <%= erp_form_control("text", {
+                                    name: 'contact[phone]',
+                                    value: contact.phone,
+                                    label: t('.phone'),
+                                    placeholder: t('.enter_phone_numbers')
+                                }) %>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <%= erp_form_control("email", {
+                                    name: 'contact[email]',
+                                    value: contact.email,
+                                    label: t('.email_address'),
+                                    placeholder: t('.enter_email_address')
+                                }) %>
+                            </div>
+                        </div>
+                        <%= erp_form_control("text", {
+                            name: 'contact[website]',
+                            value: contact.website,
+                            label: t('.website'),
+                            placeholder: t('.eg_website')
+                        }) %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="portlet light bordered">
+                    <div class="portlet-body form">                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <%= erp_form_control("text", {
+                                    name: 'contact[tax_code]',
+                                    value: contact.tax_code,
+                                    label: t('.tax_code'),
+                                    placeholder: t('.enter_tax_code')
+                                }) %>
+                            </div>
+                            <div class="col-md-6">
+                                <%= erp_form_control("text", {
+                                    name: 'contact[fax]',
+                                    value: contact.fax,
+                                    label: t('.fax'),
+                                    placeholder: t('.enter_fax'),
+                                }) %>
+                            </div>
+                        </div>
+                        <% if Erp::Core.available?("areas") %>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= erp_form_control("dataselect", {
+                                        name: 'contact[state_id]',
+                                        value: contact.state_id,
+                                        text: contact.state_name,
+                                        placeholder: t('.choose_state'),
+                                        label: t('.state'),
+                                        url: erp_areas.dataselect_backend_states_path(format: 'json'),
+                                        parent_control: "input[name='contact[country_id]']",
+                                        parent_id: "country_id"
+                                    }) %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= erp_form_control("dataselect", {
+                                        name: 'contact[district_id]',
+                                        value: contact.district_id,
+                                        text: contact.district_name,
+                                        placeholder: t('.choose_district'),
+                                        label: t('.district'),
+                                        url: erp_areas.dataselect_backend_districts_path(format: 'json'),
+                                        parent_control: "input[name='contact[state_id]']",
+                                        parent_id: "state_id"
+                                    }) %>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <%= erp_form_control("text", {
+                                        name: 'contact[address]',
+                                        value: contact.address,
+                                        label: t('.address'),
+                                        placeholder: t('.enter_address')
+                                    }) %>
+                                </div>
+                            </div>
+                        <% end %>                                                
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_contacts.backend_contacts_path
+    }) %>
+<% end %>
