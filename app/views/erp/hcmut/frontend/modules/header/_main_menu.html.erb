@@ -4,14 +4,13 @@
             <%= link_to '<i class="fa fa-home font-28"></i>'.html_safe, erp_hcmut.root_path, title: 'Quay trở về trang chủ' %>
         </li>
         <li><%= link_to 'Giới Thiệu', erp_hcmut.about_us_path, title: 'Giới Thiệu' %></li>
-        <li><%= link_to 'Dịch Vụ', erp_hcmut.service_listing_path, title: 'Dịch Vụ' %>
+        <li><%= link_to 'Dịch Vụ Kế Toán', erp_hcmut.service_listing_path, title: 'Dịch Vụ' %>
             <ul class="dropdown">
                 <% Erp::Finances::Service.get_services.each do |service| %>
                 <li><%= link_to service.get_name, service_link(service), title: service.get_name %></li>
                 <% end %>
             </ul>
         </li>
-        <li><%= link_to 'Bảng Giá Dịch Vụ', '', title: 'Bảng Giá Dịch Vụ' %></li>
         <li><%= link_to 'Tin Tức', erp_hcmut.blog_listing_path, title: 'Tin Tức' %></li>
         <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path, title: 'Tuyển Dụng' %></li>
         <li><%= link_to 'Liên Hệ', erp_hcmut.contact_path, title: 'Liên Hệ' %></li>

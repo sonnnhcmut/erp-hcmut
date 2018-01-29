@@ -18,6 +18,13 @@ vi:
           create: "Thêm mới"
           edit: "Cập nhật"
           delete: "Xóa"
+      testimonial:
+        controller_testimonials: "Đánh giá từ khách hàng"
+        testimonials:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
       user:
         controller_users: "Quản lý người dùng"
         users:

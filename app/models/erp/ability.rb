@@ -46,10 +46,15 @@ module Erp
       can :edit, Erp::UserGroup if user.get_permission(:user_management, :user_group, :user_groups, :edit) == 'yes'
       can :delete, Erp::UserGroup if user.get_permission(:user_management, :user_group, :user_groups, :delete) == 'yes'
       
+      can :view, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :index) == 'yes'
+      can :create, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :create) == 'yes'
+      can :edit, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :edit) == 'yes'
+      can :delete, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :delete) == 'yes'
+      
       can :view, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :index) == 'yes'
       can :create, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :create) == 'yes'
       can :edit, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :edit) == 'yes'
-      can :delete, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :delete) == 'yes'
+      can :delete, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :delete) == 'yes'      
       
       can :view_self, Erp::Finances::ServiceRegister if user.get_permission(:user_management, :service, :service_registers, :index) == 'self'
       can :create, Erp::Finances::ServiceRegister if user.get_permission(:user_management, :service, :service_registers, :create) == 'yes'
