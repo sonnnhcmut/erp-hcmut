@@ -59,12 +59,7 @@ module Erp
       can :view, Erp::Articles::Article if user.get_permission(:user_management, :article, :articles, :index) == 'yes'
       can :create, Erp::Articles::Article if user.get_permission(:user_management, :article, :articles, :create) == 'yes'
       can :edit, Erp::Articles::Article if user.get_permission(:user_management, :article, :articles, :edit) == 'yes'
-      can :delete, Erp::Articles::Article if user.get_permission(:user_management, :article, :articles, :delete) == 'yes'
-      
-      can :view, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :index) == 'yes'
-      can :create, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :create) == 'yes'
-      can :edit, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :edit) == 'yes'
-      can :delete, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :delete) == 'yes'
+      can :delete, Erp::Articles::Article if user.get_permission(:user_management, :article, :articles, :delete) == 'yes'    
       
       can :view, Erp::Contacts::Message if user.get_permission(:user_management, :contact, :messages, :index) == 'yes'
       can :create, Erp::Contacts::Message if user.get_permission(:user_management, :contact, :messages, :create) == 'yes'
