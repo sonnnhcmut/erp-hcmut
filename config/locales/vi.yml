@@ -1,3 +1,34 @@
 vi:
   about_us: "Giới thiệu (About Us)"
   blog: "Bài viết/Tin tức (Blog)"
+  permission:
+    group_user_management: "Phân Quyền Người Dùng"
+    user_management:
+      finance:
+        controller_services: "Dịch vụ"
+        services:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      service:
+        controller_service_registers: "Đăng ký dịch vụ"
+        service_registers:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      user:
+        controller_users: "Quản lý người dùng"
+        users:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      user_group:
+        controller_user_groups: "Phân quyền"
+        user_groups:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"

@@ -8,26 +8,12 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="widget pull-right flip sm-pull-none">
-                        <ul class="nav navbar-nav list-bordered language-switcher">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/hcmut/images/flags/en.png" alt="En"> VI <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><img src="/hcmut/images/flags/en.png" alt="En"> English</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="widget">
                         <ul class="list-inline  text-right flip sm-text-center">
                             <li class="m-0 pl-10">
-                                <%= link_to '<i class="fa fa-edit mr-5 text-theme-colored2"></i> Đăng Nhập'.html_safe,
-                                    erp_hcmut.login_path, title: 'Đăng nhập tài khoản', class: 'text-white' %>
-                            </li>
-                            <li class="m-0 pl-0 pr-10">
-                                <%= link_to '<i class="fa fa-user-o mr-5 text-theme-colored2"></i> Đăng Ký'.html_safe,
-                                    erp_hcmut.register_path, title: 'Đăng ký tài khoản', class: 'text-white' %>
-                            </li>                            
+                                <%= link_to '<i class="fa fa-edit mr-5 text-theme-colored2"></i> Đăng nhập'.html_safe,
+                                    erp.backend_path, title: 'Đăng nhập tài khoản', class: 'text-white' %>
+                            </li>                          
                         </ul>
                     </div>
                 </div>

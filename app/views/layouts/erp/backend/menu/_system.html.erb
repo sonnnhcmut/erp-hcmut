@@ -1,3 +1,4 @@
+<% if (can? :view, Erp::User) || (can? :view, Erp::UserGroup) %>
 <li class="nav-item  <%= "active open" if (params[:controller] == "erp/backend/users") ||
                                          (params[:controller] == "erp/backend/user_groups") %>">
     <a href="javascript:;" class="nav-link nav-toggle">
@@ -12,6 +13,7 @@
         <% end %>
     </a>
     <ul class="sub-menu">
+        <% if (can? :view, Erp::User) %>
         <li class="nav-item <%= "active open" if ["erp/backend/users"].include?(params[:controller]) %>">
             <a href="<%= erp.backend_users_path %>" class="nav-link ">
                 <span class="title">Quản lý người dùng</span>
@@ -20,6 +22,8 @@
                 <% end %>
             </a>
         </li>
+        <% end %>
+        <% if (can? :view, Erp::UserGroup) %>
         <li class="nav-item <%= "active open" if ["erp/backend/user_groups"].include?(params[:controller]) %>">
             <a href="<%= erp.backend_user_groups_path %>" class="nav-link ">
                 <span class="title">Nhóm & Phân quyền</span>
@@ -28,5 +32,7 @@
                 <% end %>
             </a>
         </li>
+        <% end %>
     </ul>
 </li>
+<% end %>
