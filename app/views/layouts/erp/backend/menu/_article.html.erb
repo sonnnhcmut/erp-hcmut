@@ -1,0 +1,32 @@
+<li class="nav-item  <%= "active open" if (params[:controller] == "erp/articles/backend/articles") ||
+                                           (params[:controller] == "erp/articles/backend/categories") %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-newspaper-o"></i>
+        <span class="title">Bài viết</span>
+        <% if (params[:controller] == "erp/articles/backend/articles") ||
+               (params[:controller] == "erp/articles/backend/categories") %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/articles/backend/articles"].include?(params[:controller]) %>">
+            <a href="<%= erp_articles.backend_articles_path %>" class="nav-link ">
+                <span class="title">Danh sách bài viết</span>
+                <% if ["erp/articles/backend/articles"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+        <li class="nav-item <%= "active open" if ["erp/articles/backend/categories"].include?(params[:controller]) %>">
+            <a href="<%= erp_articles.backend_categories_path %>" class="nav-link ">
+                <span class="title">Chuyên mục</span>
+                <% if ["erp/articles/backend/categories"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>
