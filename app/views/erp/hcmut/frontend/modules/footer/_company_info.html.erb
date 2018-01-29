@@ -1,22 +1,20 @@
 <div class="widget dark">
-    <%= image_tag '/hcmut/images/logo-wide-white.png', alt: '', class: 'mt-10 mb-20' %>
-    <p>188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh</p>
+    <%= link_to image_tag(Erp::Contacts::Contact.get_main_contact.image_url.logo_thumb, alt: ''), class: "mt-10 mb-20" %>
+    <p><%= display_contact_address(Erp::Contacts::Contact.get_main_contact) %></p>
     <ul class="mt-5">
         <li class="m-0 pl-0 pr-10">
             <i class="fa fa-phone text-theme-colored mr-5"></i>
-            <a class="text-gray" href="#">123-456-789</a>
+            <%= link_to Erp::Contacts::Contact.get_main_contact.phone, "tel:#{Erp::Contacts::Contact.get_main_contact.phone}", class: "text-gray" %>
         </li>
         <li class="m-0 pl-0 pr-10">
             <i class="fa fa-envelope-o text-theme-colored mr-5"></i>
-            <a class="text-gray" href="#">contact@yourdomain.com</a>
+            <%= link_to Erp::Contacts::Contact.get_main_contact.email, "mailto:#{Erp::Contacts::Contact.get_main_contact.email}", class: "text-gray" %>
         </li>
-        <li class="m-0 pl-0 pr-10">
-            <i class="fa fa-globe text-theme-colored mr-5"></i>
-            <a class="text-gray" href="#">www.yourdomain.com</a>
-        </li>
-        <li class="m-0 pl-0 pr-10">
-            <i class="fa fa-skype text-theme-colored mr-5"></i>
-            <a class="text-gray" href="#">nguyenngocson0811</a>
-        </li>
+        <% if Erp::Contacts::Contact.get_main_contact.website.present? %>
+            <li class="m-0 pl-0 pr-10">
+                <i class="fa fa-globe text-theme-colored mr-5"></i>
+                <%= link_to Erp::Contacts::Contact.get_main_contact.website, "tel:#{Erp::Contacts::Contact.get_main_contact.website}", class: "text-gray" %>
+            </li>
+        <% end %>
     </ul>
 </div>

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="widget text-white">
-                        <i class="fa fa-clock-o text-theme-colored2"></i> Giờ làm việc: Thứ 2 - Thứ 6 (8:00AM - 17:00PM), Thứ 7 - Chủ Nhật - Ngày Lễ (Không làm việc)
+                        <i class="fa fa-clock-o text-theme-colored2"></i> <%= Erp::Contacts::Contact.get_main_contact.note %>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -27,19 +27,19 @@
                     <div class="widget sm-text-center">
                         <i class="fa fa-envelope text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
                         <%= link_to 'Địa chỉ email', 'mailto:info@yourdomain.com', title: '', class: 'font-12 text-gray text-uppercase' %>
-                        <h5 class="font-13 text-black m-0"> info@yourdomain.com</h5>
+                        <h5 class="font-13 text-black m-0"> <%= Erp::Contacts::Contact.get_main_contact.email %></h5>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget text-center">
-                        <%= link_to image_tag('/hcmut/images/logo-wide1.png', alt: ''), erp_hcmut.root_path, title: '' %>
+                        <%= link_to image_tag(Erp::Contacts::Contact.get_main_contact.image_url.logo_thumb), erp_hcmut.root_path, alt: '' %>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget sm-text-center">
                         <i class="fa fa-building-o text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
                         <%= link_to 'Địa chỉ', erp_hcmut.contact_path, title: '', class: 'font-12 text-gray text-uppercase' %>
-                        <h5 class="font-13 text-black m-0"> 188 Đường Số 1, P.16, Gò Vấp, TP.HCM, VN</h5>
+                        <h5 class="font-13 text-black m-0"> <%= display_contact_address(Erp::Contacts::Contact.get_main_contact) %></h5>
                     </div>
                 </div>
             </div>

@@ -15,8 +15,8 @@
         <li><%= link_to 'Tuyển Dụng', erp_hcmut.job_listing_path, title: 'Tuyển Dụng' %></li>
         <li><%= link_to 'Liên Hệ', erp_hcmut.contact_path, title: 'Liên Hệ' %></li>
         <li class="active pull-right">
-            <%= link_to '<i class="pe-7s-call mr-10 font-28"></i> (028) 1234 5678'.html_safe,
-                'tel:0123456789' , title: '', class: 'font-20 line-height-1' %>
+            <%= link_to "<i class=\"pe-7s-call mr-10 font-28\"></i> #{Erp::Contacts::Contact.get_main_contact.phone}".html_safe,
+                "tel:#{Erp::Contacts::Contact.get_main_contact.phone}" , title: '', class: 'font-20 line-height-1' %>
         </li>
     </ul>
 </nav>
