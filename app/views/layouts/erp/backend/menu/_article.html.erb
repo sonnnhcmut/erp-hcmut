@@ -12,6 +12,7 @@
         <% end %>
     </a>
     <ul class="sub-menu">
+        <% if (can? :view, Erp::Articles::Article) %>
         <li class="nav-item <%= "active open" if ["erp/articles/backend/articles"].include?(params[:controller]) %>">
             <a href="<%= erp_articles.backend_articles_path %>" class="nav-link ">
                 <span class="title">Danh sách bài viết</span>
@@ -20,6 +21,8 @@
                 <% end %>
             </a>
         </li>
+        <% end %>
+        <% if (can? :view, Erp::Articles::Category) %>
         <li class="nav-item <%= "active open" if ["erp/articles/backend/categories"].include?(params[:controller]) %>">
             <a href="<%= erp_articles.backend_categories_path %>" class="nav-link ">
                 <span class="title">Chuyên mục</span>
@@ -28,5 +31,6 @@
                 <% end %>
             </a>
         </li>
+        <% end %>
     </ul>
 </li>

@@ -106,7 +106,7 @@ module Erp
                 ],
               },
             },
-          },
+          },          
           service: {
             service_registers: {
               index: {
@@ -138,6 +138,132 @@ module Erp
                 ],
               },
             }
+          },
+          recruitment: {
+            recruitments: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
+          },
+          article: {
+            categories: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
+            articles: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
+          },
+          contact: {
+            messages: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
           },
           testimonial: {
             testimonials: {

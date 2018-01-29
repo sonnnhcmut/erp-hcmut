@@ -18,6 +18,39 @@ vi:
           create: "Thêm mới"
           edit: "Cập nhật"
           delete: "Xóa"
+      recruitment:
+        controller_recruitments: "Tuyển dụng"
+        recruitments:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      article:
+        controller_categories: "Chuyên mục bài viết"
+        categories:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+        controller_articles: "Bài viết"
+        articles:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+      contact:
+        controller_contacts: "Sổ địa chỉ"
+        contacts:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
+        controller_messages: "Lời nhắn"
+        messages:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
       testimonial:
         controller_testimonials: "Đánh giá từ khách hàng"
         testimonials:

@@ -1,0 +1,169 @@
+<div class="">
+    <table class="table table-advance table-hover table-striped table-checkable order-column" id="">
+        <thead>
+            <tr>
+                <th width='1%'>
+                    <%= erp_datalist_check_all %>
+                </th>
+                <% if get_columns(params).include?("image") %>
+                    <th>
+                        <%= t('.image') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("name") %>
+                    <th class="sortable" sort-by='erp_articles_articles.name'>
+                        <%= t('.name') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("category") %>
+                    <th>
+                        <%= t('.category') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("content") %>
+                    <th>
+                        <%= t('.content') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("meta_keyword") %>
+                    <th>
+                        <%= t('.meta_keyword') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("meta_description") %>
+                    <th>
+                        <%= t('.meta_description') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("tags") %>
+                    <th>
+                        <%= t('.tags') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("status") %>
+                    <th>
+                        <%= t('.status') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("creator") %>
+                    <th>
+                        <%= t('.creator') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("created_at") %>
+                    <th class="sortable" sort-by='erp_articles_articles.created_at'>
+                        <%= t('.created_at') %>
+                    </th>
+                <% end %>
+                <th width="7%" class="sortable text-nowrap" sort-by='erp_articles_articles.custom_order'>
+                    <%= t('custom_order') %>
+                </th>
+                <th width="7%"><%= t('.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @articles.each do |article| %>
+                <tr class="odd gradeX">
+                    <td>
+                        <%= erp_datalist_check_row(id: article.id) %>
+                    </td>
+                    <% if get_columns(params).include?("image") %>
+                        <td><%= article.image %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("name") %>
+                        <td>
+                            <% if can? :edit, article %>
+                                <%= link_to article.name, erp_articles.edit_backend_article_path(article) %>
+                            <% else %>
+                                <%= article.name %>
+                            <% end %>
+                        </td>
+                    <% end %>
+                    <% if get_columns(params).include?("category") %>
+                        <td><%= article.category_name %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("content") %>
+                        <td><%= short_text(article.content, 15) %>...</td>
+                    <% end %>
+                    <% if get_columns(params).include?("meta_keyword") %>
+                        <td><%= article.meta_keyword %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("meta_description") %>
+                        <td><%= article.meta_description %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("tags") %>
+                        <td><%= article.tags %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("stock_max") %>
+                        <td><%= article.stock_max %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("status") %>
+                    <td>
+                        <% if article.archived == true %>
+                        <span class="label label-sm label-danger"><%= t('.archived') %></span>
+                        <% else %>
+                        <span class="label label-sm label-success"><%= t('.active') %></span>
+                        <% end %>
+                    </td>
+                    <% end %>
+                    <% if get_columns(params).include?("creator") %>
+                        <td>
+                            <%= erp_component('avatar', {
+                                user: article.creator
+                            }) %>
+                        </td>
+                    <% end %>
+                    <% if get_columns(params).include?("created_at") %>
+                        <td><%= article.created_at.strftime("%d/%m/%Y") %></td>
+                    <% end %>
+                    <td class="text-center text-semibold">
+                        <%= erp_datalist_order_column({
+                            item: article,
+                            move_up_url: erp_articles.move_up_backend_articles_path(id: article),
+                            move_down_url: erp_articles.move_down_backend_articles_path(id: article),
+                            sort_by: 'erp_articles_articles.custom_order'
+                        }) %>
+                    </td>
+                    <td>
+                        <%
+                            actions = []
+                             actions << {
+                                    text: '<i class="fa fa-edit"></i> '+t('.edit'),
+                                    href: erp_articles.edit_backend_article_path(article)
+                                } if can? :edit, article
+                            actions << {
+                                    text: '<i class="fa fa-ban"></i> '+t('.archive'),
+                                    url: erp_articles.archive_backend_articles_path(id: article),
+                                    data_method: 'PUT',
+                                    hide: article.archived,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.archive_confirm')
+                                } if can? :edit, article
+                            actions << {
+                                    text: '<i class="fa fa-check"></i> '+t('.unarchive'),
+                                    url: erp_articles.unarchive_backend_articles_path(id: article),
+                                    data_method: 'PUT',
+                                    hide: !article.archived,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.unarchive_confirm')
+                                } if can? :edit, article
+                            actions << {
+                                    text: '<i class="fa fa-trash"></i> '+t('.delete'),
+                                    url: erp_articles.backend_article_path(article),
+                                    data_method: 'DELETE',
+                                    class: 'ajax-link',
+                                    data_confirm: t('.delete_confirm')
+                                } if can? :delete, article                        
+                        %> 
+                        <%= erp_datalist_row_actions(actions) %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <% if @articles.empty? %>
+        <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
+    <% end %>
+</div>
+
+<%= erp_datalist_pagination(@articles) %>

@@ -1,0 +1,106 @@
+<% content_for :title do %>
+    <%= t('.articles') %>
+<% end %>
+
+<% content_for :page_title do %>
+    <i class="fa fa-archive"></i> <%= t('.articles') %>
+<% end %>
+
+<% if can? :create, Erp::Articles::Article %>
+    <% content_for :page_toolbar do %>
+        <%= erp_component('button/create', {
+            text: t('.create'),
+            href: erp_articles.new_backend_article_path,
+            class: 'btn-noborder'
+        }) %>
+    <% end %>
+<% end %>
+
+<%= erp_datalist(
+    url: erp_articles.list_backend_articles_path,
+    keywords: [
+        {
+            text: t('.name'), name: 'erp_articles_articles.name'
+        },
+        {
+            text: t('.category'),
+            name: 'erp_articles_categories.name',
+            select: {
+                name: 'erp_articles_categories.id',
+                data_url: erp_articles.dataselect_backend_categories_path
+            }
+        },
+        {
+            text: t('creator'),
+            name: 'erp_users.name',
+            select: {
+                name: 'erp_users.id',
+                data_url: erp.dataselect_backend_users_path
+            }
+        }
+    ],
+    actions: [
+        {
+            text: '<i class="fa fa-ban"></i> '+t('.archive'),
+            url: erp_articles.archive_all_backend_articles_path,
+            data_method: 'PUT',
+            data_confirm: t('.archive_confirm')
+        },
+        {
+            text: '<i class="fa fa-check"></i> '+t('.unarchive'),
+            url: erp_articles.unarchive_all_backend_articles_path,
+            data_method: 'PUT',
+            data_confirm: t('.unarchive_confirm')
+        },
+        {
+            divider: true
+        },
+        {
+            text: '<i class="fa fa-trash"></i> '+t('.delete'),
+            url: erp_articles.delete_all_backend_articles_path,
+            data_method: 'DELETE',
+            data_confirm: t('.delete_confirm')
+        }
+    ],
+    filters: [
+        {
+            text: t('.archived'), name: 'erp_articles_articles.archived', value: 'true', checked: false
+        },
+        {
+            text: t('.unarchived'), name: 'erp_articles_articles.archived', value: 'false', checked: true
+        },
+    ],
+    columns: [
+        {
+            text: t('.image'), name: 'image', value: true, checked: false
+        },
+        {
+            text: t('.name'), name: 'name', value: true, checked: true
+        },
+        {
+            text: t('.category'), name: 'category', value: true, checked: true
+        },
+        {
+            text: t('.content'), name: 'content', value: true, checked: false
+        },
+        {
+            text: t('.meta_keyword'), name: 'meta_keyword', value: true, checked: false
+        },
+        {
+            text: t('.meta_description'), name: 'meta_description', value: true, checked: false
+        },
+        {
+            text: t('.tags'), name: 'tags', value: true, checked: false
+        },
+        {
+            text: t('.status'), name: 'status', value: true, checked: true
+        },
+        {
+            text: t('.creator'), name: 'creator', value: true, checked: false
+        },
+        {
+            text: t('.created_at'), name: 'created_at', value: true, checked: false
+        }
+    ],
+    sort: { sort_by: 'erp_articles_articles.created_at', sort_direction: 'desc' }
+) %>    

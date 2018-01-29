@@ -1,3 +1,4 @@
+<% if (can? :view, Erp::Recruitments::Recruitment) %>
 <li class="nav-item  <%= "active open" if (params[:controller] == "erp/recruitments/backend/recruitments") %>">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-users"></i>
@@ -20,3 +21,4 @@
         </li>
     </ul>
 </li>
+<% end %>
