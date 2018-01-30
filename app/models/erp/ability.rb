@@ -66,6 +66,11 @@ module Erp
       can :edit, Erp::Contacts::Message if user.get_permission(:user_management, :contact, :messages, :edit) == 'yes'
       can :delete, Erp::Contacts::Message if user.get_permission(:user_management, :contact, :messages, :delete) == 'yes'
       
+      can :view, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :index) == 'yes'
+      can :create, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :create) == 'yes'
+      can :edit, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :edit) == 'yes'
+      can :delete, Erp::Contacts::Contact if user.get_permission(:user_management, :contact, :contacts, :delete) == 'yes'
+      
       can :view, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :index) == 'yes'
       can :create, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :create) == 'yes'
       can :edit, Erp::Testimonials::Testimonial if user.get_permission(:user_management, :testimonial, :testimonials, :edit) == 'yes'
@@ -74,7 +79,12 @@ module Erp
       can :view, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :index) == 'yes'
       can :create, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :create) == 'yes'
       can :edit, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :edit) == 'yes'
-      can :delete, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :delete) == 'yes'      
+      can :delete, Erp::Finances::Service if user.get_permission(:user_management, :finance, :services, :delete) == 'yes'
+      
+      can :view, Erp::Banners::Banner if user.get_permission(:user_management, :banner, :slideshows, :index) == 'yes'
+      can :create, Erp::Banners::Banner if user.get_permission(:user_management, :banner, :slideshows, :create) == 'yes'
+      can :edit, Erp::Banners::Banner if user.get_permission(:user_management, :banner, :slideshows, :edit) == 'yes'
+      can :delete, Erp::Banners::Banner if user.get_permission(:user_management, :banner, :slideshows, :delete) == 'yes'
       
       can :view_self, Erp::Finances::ServiceRegister if user.get_permission(:user_management, :service, :service_registers, :index) == 'self'
       can :create, Erp::Finances::ServiceRegister if user.get_permission(:user_management, :service, :service_registers, :create) == 'yes'

@@ -264,9 +264,71 @@ module Erp
                 ],
               },
             },
+            contacts: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
           },
           testimonial: {
             testimonials: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
+          },
+          banner: {
+            slideshows: {
               index: {
                 value: 'no',
                 options: [
@@ -328,7 +390,39 @@ module Erp
                 ],
               },
             }
-          },          
+          },
+          banner: {
+            slideshows: {
+              index: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              create: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              edit: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+              delete: {
+                value: 'no',
+                options: [
+                  {value: 'yes', text: 'Có'},
+                  {value: 'no', text: 'Không'},
+                ],
+              },
+            },
+          },
           user_group: {
             user_groups: {
               index: {

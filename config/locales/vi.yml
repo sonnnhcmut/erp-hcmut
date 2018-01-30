@@ -11,6 +11,13 @@ vi:
           create: "Thêm mới"
           edit: "Cập nhật"
           delete: "Xóa"
+      banner:
+        controller_slideshows: "Slideshow"
+        slideshows:
+          index: "Xem danh sách"
+          create: "Thêm mới"
+          edit: "Cập nhật"
+          delete: "Xóa"
       service:
         controller_service_registers: "Đăng ký dịch vụ"
         service_registers:

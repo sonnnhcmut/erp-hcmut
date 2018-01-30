@@ -1,3 +1,4 @@
+<% if (can? :view, Erp::Articles::Article) || (can? :view, Erp::Articles::Category) %>
 <li class="nav-item  <%= "active open" if (params[:controller] == "erp/articles/backend/articles") ||
                                            (params[:controller] == "erp/articles/backend/categories") %>">
     <a href="javascript:;" class="nav-link nav-toggle">
@@ -34,9 +35,9 @@
         <% end %>
     </ul>
 </li>
+<% end %>
 
-
-
+<% if (can? :view, Erp::Banners::Banner) %>
 <li class="nav-item  <%= "active open" if (params[:controller] == "erp/banners/backend/banners") %>">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-picture-o"></i>
@@ -59,3 +60,4 @@
         </li>
     </ul>
 </li>
+<% end %>
